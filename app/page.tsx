@@ -47,7 +47,7 @@ export default function Home() {
           />
         ))}
         <div className="section-shell relative z-10 grid min-h-[calc(100vh-5rem)] items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
-          <Reveal>
+          <Reveal direction="left">
             <p className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-extrabold uppercase tracking-[0.22em] text-rescue-400 backdrop-blur">
               24/7 emergency restoration response
             </p>
@@ -74,7 +74,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.15} className="relative hidden lg:block">
+          <Reveal delay={0.15} direction="right" className="relative hidden lg:block">
             <div className="absolute -right-4 -top-6 z-10 rounded-3xl bg-rescue-500 px-5 py-4 text-white shadow-glow">
               <p className="text-sm font-black uppercase tracking-[0.18em]">Online</p>
               <p className="text-2xl font-black">Booking Ready</p>
@@ -111,7 +111,7 @@ export default function Home() {
 
       <section className="bg-navy-50 py-20 sm:py-24">
         <div className="section-shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <Reveal>
+          <Reveal direction="left">
             <p className="text-sm font-extrabold uppercase tracking-[0.22em] text-rescue-600">
               Smart Intake
             </p>
@@ -132,7 +132,7 @@ export default function Home() {
 
       <section className="overflow-hidden bg-white py-20 sm:py-24">
         <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <Reveal>
+          <Reveal direction="left">
             <p className="text-sm font-extrabold uppercase tracking-[0.22em] text-rescue-600">
               Why Choose Us
             </p>
@@ -146,7 +146,7 @@ export default function Home() {
           </Reveal>
           <Stagger className="grid gap-4 sm:grid-cols-2">
             {whyChooseUs.map((item, index) => (
-              <StaggerItem key={item}>
+              <StaggerItem direction={index % 2 === 0 ? "left" : "right"} key={item}>
                 <div className="group glass-card flex h-full items-start gap-4 rounded-3xl p-5 transition duration-300 hover:-translate-y-2 hover:scale-[1.03] hover:bg-rescue-500">
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-rescue-500 text-white transition group-hover:bg-white group-hover:text-rescue-600">
                     <Icon name={index % 2 === 0 ? "clock" : "shield"} />

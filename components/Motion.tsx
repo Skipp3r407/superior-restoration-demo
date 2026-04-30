@@ -3,19 +3,37 @@
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
-const revealVariants: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0 }
-};
+type RevealDirection = "up" | "left" | "right";
+
+function hiddenState(direction: RevealDirection) {
+  if (direction === "left") {
+    return { opacity: 0, x: -56, y: 0 };
+  }
+
+  if (direction === "right") {
+    return { opacity: 0, x: 56, y: 0 };
+  }
+
+  return { opacity: 0, x: 0, y: 34 };
+}
+
+function revealVariants(direction: RevealDirection): Variants {
+  return {
+    hidden: hiddenState(direction),
+    visible: { opacity: 1, x: 0, y: 0 }
+  };
+}
 
 export function Reveal({
   children,
   className,
-  delay = 0
+  delay = 0,
+  direction = "up"
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  direction?: RevealDirection;
 }) {
   return (
     <motion.div
@@ -23,8 +41,8 @@ export function Reveal({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.18 }}
-      transition={{ duration: 0.65, ease: "easeOut", delay }}
-      variants={revealVariants}
+      transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1], delay }}
+      variants={revealVariants(direction)}
     >
       {children}
     </motion.div>
@@ -60,19 +78,18 @@ export function Stagger({
 
 export function StaggerItem({
   children,
-  className
+  className,
+  direction = "up"
 }: {
   children: ReactNode;
   className?: string;
+  direction?: RevealDirection;
 }) {
   return (
     <motion.div
       className={className}
-      variants={{
-        hidden: { opacity: 0, y: 24 },
-        visible: { opacity: 1, y: 0 }
-      }}
-      transition={{ duration: 0.55, ease: "easeOut" }}
+      variants={revealVariants(direction)}
+      transition={{ duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>

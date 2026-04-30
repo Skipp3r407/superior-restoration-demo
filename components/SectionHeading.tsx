@@ -16,6 +16,7 @@ export function SectionHeading({
       className={`mx-auto max-w-3xl ${
         align === "center" ? "text-center" : "mx-0 text-left"
       }`}
+      direction={align === "center" ? "up" : "left"}
     >
       {eyebrow ? (
         <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.22em] text-rescue-600">

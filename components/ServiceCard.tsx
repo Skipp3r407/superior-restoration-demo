@@ -12,7 +12,7 @@ export function ServiceCard({
   href?: string;
 }) {
   return (
-    <StaggerItem className="group h-full">
+    <StaggerItem className="group h-full" direction="up">
       <article className="glass-card flex h-full flex-col overflow-hidden rounded-[2rem] transition duration-300 hover:-translate-y-2 hover:border-rescue-500/50 hover:shadow-[0_30px_90px_rgba(232,31,55,0.18)]">
         <div className="relative h-56 overflow-hidden">
           <Image

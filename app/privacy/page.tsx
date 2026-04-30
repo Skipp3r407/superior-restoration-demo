@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CTASection } from "@/components/CTASection";
+import { Reveal } from "@/components/Motion";
 import { PageHero } from "@/components/PageHero";
 import { company, images } from "@/lib/site";
 
@@ -54,23 +55,27 @@ export default function PrivacyPage() {
       <section className="bg-white py-20 sm:py-24">
         <div className="section-shell">
           <div className="mx-auto max-w-4xl">
-            <p className="rounded-3xl bg-navy-50 p-5 leading-7 text-slate-600">
-              This policy is written for the upgraded Superior Restoration
-              Services website experience. It should be reviewed by the business
-              owner or legal counsel before publishing as a final legal policy.
-            </p>
+            <Reveal direction="left">
+              <p className="rounded-3xl bg-navy-50 p-5 leading-7 text-slate-600">
+                This policy is written for the upgraded Superior Restoration
+                Services website experience. It should be reviewed by the business
+                owner or legal counsel before publishing as a final legal policy.
+              </p>
+            </Reveal>
 
             <div className="mt-8 grid gap-5">
-              {sections.map((section) => (
-                <article
-                  className="rounded-[2rem] border border-navy-100 bg-white p-6 shadow-sm"
+              {sections.map((section, index) => (
+                <Reveal
+                  direction={index % 2 === 0 ? "left" : "right"}
                   key={section.title}
                 >
-                  <h2 className="text-2xl font-black text-navy-950">
-                    {section.title}
-                  </h2>
-                  <p className="mt-3 leading-8 text-slate-600">{section.text}</p>
-                </article>
+                  <article className="rounded-[2rem] border border-navy-100 bg-white p-6 shadow-sm">
+                    <h2 className="text-2xl font-black text-navy-950">
+                      {section.title}
+                    </h2>
+                    <p className="mt-3 leading-8 text-slate-600">{section.text}</p>
+                  </article>
+                </Reveal>
               ))}
             </div>
           </div>

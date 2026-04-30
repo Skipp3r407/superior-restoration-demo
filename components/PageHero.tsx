@@ -34,7 +34,7 @@ export function PageHero({
           compact ? "py-20 sm:py-24" : "py-24 sm:py-28 lg:py-32"
         }`}
       >
-        <Reveal className="max-w-4xl">
+        <Reveal className="max-w-4xl" direction="left">
           <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-rescue-400">
             {eyebrow}
           </p>

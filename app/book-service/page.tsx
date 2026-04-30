@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BookingWizard } from "@/components/BookingWizard";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Reveal } from "@/components/Motion";
 import { TrustBadges } from "@/components/TrustBadges";
 import { images } from "@/lib/site";
 
@@ -29,9 +30,11 @@ export default function BookServicePage() {
             text="This front-end flow structures customer details for future CRM leads, admin dashboards, email notifications, SMS alerts, Stripe deposits, and calendar sync."
             title="A simple intake flow built for emergency restoration leads"
           />
-          <div className="mt-12">
-            <BookingWizard />
-          </div>
+          <Reveal direction="up">
+            <div className="mt-12">
+              <BookingWizard />
+            </div>
+          </Reveal>
         </div>
       </section>
 

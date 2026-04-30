@@ -6,7 +6,7 @@ export function ServiceArea() {
   return (
     <section className="overflow-hidden bg-white py-20 sm:py-24">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <Reveal>
+        <Reveal direction="left">
           <p className="text-sm font-extrabold uppercase tracking-[0.22em] text-rescue-600">
             Service Area
           </p>
@@ -29,9 +29,9 @@ export function ServiceArea() {
               <p className="text-xl font-black">{company.serviceArea} Coverage</p>
             </div>
             <Stagger className="grid gap-3 sm:grid-cols-2">
-              {serviceAreas.map((area) => (
-                <StaggerItem key={area}>
-                  <div className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 font-bold text-white/85">
+              {serviceAreas.map((area, index) => (
+                <StaggerItem direction={index % 2 === 0 ? "left" : "right"} key={area}>
+                  <div className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 font-bold text-white/85 transition hover:-translate-y-0.5 hover:border-rescue-400 hover:bg-rescue-500 hover:text-white hover:shadow-[0_18px_42px_rgba(232,31,55,0.28)]">
                     {area}
                   </div>
                 </StaggerItem>

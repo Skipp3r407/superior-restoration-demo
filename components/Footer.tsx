@@ -32,7 +32,7 @@ export function Footer() {
             License: {company.licenses}. This upgraded website experience was
             created by{" "}
             <a
-              className="font-black text-white underline-offset-4 transition hover:text-rescue-400 hover:underline"
+              className="font-black text-white underline-offset-4 transition hover:text-rescue-500 hover:underline"
               href="https://elevatedigitalstudios.net/"
               rel="noreferrer"
               target="_blank"
@@ -54,14 +54,14 @@ export function Footer() {
           <div className="mt-4 grid gap-3">
             {navItems.map((item) => (
               <Link
-                className="text-white/70 transition hover:text-rescue-400"
+                className="text-white/70 transition hover:text-rescue-500"
                 href={item.href}
                 key={item.href}
               >
                 {item.label}
               </Link>
             ))}
-            <Link className="text-white/70 transition hover:text-rescue-400" href="/privacy">
+            <Link className="text-white/70 transition hover:text-rescue-500" href="/privacy">
               Privacy
             </Link>
           </div>
@@ -72,7 +72,7 @@ export function Footer() {
           <div className="mt-4 grid gap-3">
             {services.map((service) => (
               <Link
-                className="text-white/70 transition hover:text-rescue-400"
+                className="text-white/70 transition hover:text-rescue-500"
                 href={`/services/${service.slug}`}
                 key={service.slug}
               >
@@ -92,13 +92,13 @@ export function Footer() {
             {company.phone}
           </a>
           <a
-            className="mt-3 block text-sm leading-6 text-white/70 transition hover:text-rescue-400"
+            className="mt-3 block text-sm leading-6 text-white/70 transition hover:text-rescue-500"
             href={company.emailHref}
           >
             {company.email}
           </a>
           <a
-            className="mt-2 block text-sm leading-6 text-white/70 transition hover:text-rescue-400"
+            className="mt-2 block text-sm leading-6 text-white/70 transition hover:text-rescue-500"
             href={company.addressMapsHref}
             rel="noreferrer"
             target="_blank"

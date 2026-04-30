@@ -116,7 +116,7 @@ export default async function WaterServiceDetailPage({ params }: PageProps) {
               "Clear service recommendation",
               "Restoration and repair coordination"
             ].map((item, index) => (
-              <StaggerItem key={item}>
+              <StaggerItem direction={index % 3 === 0 ? "left" : index % 3 === 1 ? "up" : "right"} key={item}>
                 <div className="group h-full rounded-[2rem] border border-navy-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-3 hover:scale-[1.04] hover:border-rescue-500 hover:bg-rescue-500 hover:shadow-[0_28px_80px_rgba(232,31,55,0.25)]">
                   <span className="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-rescue-400 transition group-hover:bg-white group-hover:text-rescue-600">
                     {index + 1}

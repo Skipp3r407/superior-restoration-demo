@@ -1,6 +1,6 @@
 import { Quote, Star } from "lucide-react";
 import { ButtonLink } from "@/components/Button";
-import { Stagger, StaggerItem } from "@/components/Motion";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { SectionHeading } from "@/components/SectionHeading";
 import { company, testimonials } from "@/lib/site";
 
@@ -13,27 +13,29 @@ export function TestimonialSection() {
           text={`Superior Restoration Services is shown with a ${company.googleRating} Google rating from ${company.googleReviewCount} public reviews.`}
           title="Customer experiences from Google review highlights"
         />
-        <div className="group mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 rounded-[2rem] bg-white p-5 text-center shadow-sm ring-1 ring-navy-100 transition duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:bg-rescue-500 hover:shadow-[0_28px_80px_rgba(232,31,55,0.24)] sm:flex-row sm:justify-between sm:text-left">
-          <div>
-            <div className="flex justify-center gap-1 text-rescue-500 transition group-hover:text-white sm:justify-start">
-              {[...Array(5)].map((_, index) => (
-                <Star className="h-5 w-5 fill-current" key={index} />
-              ))}
+        <Reveal direction="right">
+          <div className="group mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 rounded-[2rem] bg-white p-5 text-center shadow-sm ring-1 ring-navy-100 transition duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:bg-rescue-500 hover:shadow-[0_28px_80px_rgba(232,31,55,0.24)] sm:flex-row sm:justify-between sm:text-left">
+            <div>
+              <div className="flex justify-center gap-1 text-rescue-500 transition group-hover:text-white sm:justify-start">
+                {[...Array(5)].map((_, index) => (
+                  <Star className="h-5 w-5 fill-current" key={index} />
+                ))}
+              </div>
+              <p className="mt-2 text-2xl font-black text-navy-950 transition group-hover:text-white">
+                {company.googleRating} Google Rating
+              </p>
+              <p className="text-sm font-bold text-slate-500 transition group-hover:text-white/78">
+                Based on {company.googleReviewCount} public Google reviews
+              </p>
             </div>
-            <p className="mt-2 text-2xl font-black text-navy-950 transition group-hover:text-white">
-              {company.googleRating} Google Rating
-            </p>
-            <p className="text-sm font-bold text-slate-500 transition group-hover:text-white/78">
-              Based on {company.googleReviewCount} public Google reviews
-            </p>
+            <ButtonLink href={company.googleReviewsHref} variant="dark">
+              View Google Reviews
+            </ButtonLink>
           </div>
-          <ButtonLink href={company.googleReviewsHref} variant="dark">
-            View Google Reviews
-          </ButtonLink>
-        </div>
+        </Reveal>
         <Stagger className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {testimonials.map((item) => (
-            <StaggerItem key={item.name}>
+          {testimonials.map((item, index) => (
+            <StaggerItem direction={index % 3 === 0 ? "left" : index % 3 === 1 ? "up" : "right"} key={item.name}>
               <article className="group glass-card h-full rounded-[2rem] p-6 transition duration-300 hover:-translate-y-2 hover:scale-[1.04] hover:bg-rescue-500">
                 <div className="flex items-center justify-between gap-4">
                   <Quote className="h-8 w-8 text-rescue-500 transition group-hover:text-white" />

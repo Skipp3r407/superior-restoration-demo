@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CTASection } from "@/components/CTASection";
 import { GalleryGrid } from "@/components/GalleryGrid";
+import { Reveal } from "@/components/Motion";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { images } from "@/lib/site";
@@ -28,9 +29,11 @@ export default function GalleryPage() {
             text="Use this section to communicate the kinds of work the company handles while avoiding false claims about specific past projects."
             title="Service Examples"
           />
-          <div className="mt-12">
-            <GalleryGrid filterable />
-          </div>
+          <Reveal direction="up">
+            <div className="mt-12">
+              <GalleryGrid filterable />
+            </div>
+          </Reveal>
         </div>
       </section>
 

@@ -400,7 +400,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="bg-white py-20 sm:py-24">
         <div className="section-shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <Reveal>
+          <Reveal direction="left">
             <p className="text-sm font-extrabold uppercase tracking-[0.22em] text-rescue-600">
               The Problem
             </p>
@@ -430,7 +430,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} direction="right">
             <div className="relative h-[22rem] overflow-hidden rounded-[2rem] shadow-premium sm:h-[31rem] sm:rounded-[2.5rem]">
               <Image
                 alt={`${service.title} related restoration visual`}
@@ -452,8 +452,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             title={`When to request ${service.shortTitle.toLowerCase()} help`}
           />
           <Stagger className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {details.warningSigns.map((item) => (
-              <StaggerItem key={item}>
+            {details.warningSigns.map((item, index) => (
+              <StaggerItem direction={index % 3 === 0 ? "left" : index % 3 === 1 ? "up" : "right"} key={item}>
                 <div className="group glass-card flex h-full gap-4 rounded-3xl p-5 transition duration-300 hover:-translate-y-2 hover:scale-[1.03] hover:bg-rescue-500">
                   <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-rescue-500 text-white transition group-hover:bg-white group-hover:text-rescue-600">
                     <Icon name="check" className="h-5 w-5" />
@@ -488,8 +488,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           />
           <Stagger className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {details.included.map((item, index) => (
-              <StaggerItem key={item}>
-                <div className="group h-full rounded-[2rem] border border-navy-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-3 hover:scale-[1.04] hover:border-rescue-500 hover:bg-rescue-500 hover:shadow-[0_28px_80px_rgba(232,31,55,0.25)]">
+              <StaggerItem direction={index % 3 === 0 ? "left" : index % 3 === 1 ? "up" : "right"} key={item}>
+                <div className="group h-full rounded-[2rem] border border-navy-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-4 hover:scale-[1.08] hover:border-rescue-500 hover:bg-rescue-500 hover:shadow-[0_0_0_1px_rgba(232,31,55,0.35),0_34px_95px_rgba(232,31,55,0.38)]">
                   <span className="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-rescue-400 transition group-hover:bg-white group-hover:text-rescue-600">
                     {index + 1}
                   </span>
@@ -509,7 +509,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="bg-white py-20 sm:py-24">
         <div className="section-shell grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <Reveal>
+          <Reveal direction="left">
             <p className="text-sm font-extrabold uppercase tracking-[0.22em] text-rescue-600">
               Common Situations
             </p>
@@ -545,7 +545,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               </ButtonLink>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} direction="right">
             <div className="relative h-[22rem] overflow-hidden rounded-[2rem] shadow-premium sm:h-[32rem] sm:rounded-[2.5rem]">
               <Image
                 alt={`${service.title} royalty-free service detail visual`}
@@ -561,7 +561,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="bg-navy-950 py-20 text-white sm:py-24">
         <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <Reveal>
+          <Reveal direction="left">
             <p className="text-sm font-extrabold uppercase tracking-[0.22em] text-rescue-400">
               Photo Intake
             </p>
@@ -576,7 +576,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               right next step.
             </p>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} direction="right">
             <div className="rounded-[2rem] border border-white/10 bg-white/8 p-6">
               <div className="grid gap-4 sm:grid-cols-2">
                 {[

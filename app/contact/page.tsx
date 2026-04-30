@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { QuoteEstimator } from "@/components/QuoteEstimator";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Reveal } from "@/components/Motion";
 import { TrustBadges } from "@/components/TrustBadges";
 import { images } from "@/lib/site";
 
@@ -25,7 +26,9 @@ export default function ContactPage() {
 
       <section className="bg-white py-20 sm:py-24">
         <div className="section-shell">
-          <ContactForm />
+          <Reveal direction="left">
+            <ContactForm />
+          </Reveal>
         </div>
       </section>
 
@@ -36,9 +39,11 @@ export default function ContactPage() {
             text="Use the estimator to frame urgency and service type before starting the intake."
             title="Get a smarter recommendation first"
           />
-          <div className="glass-card mt-12 rounded-[2.5rem] p-6">
-            <QuoteEstimator />
-          </div>
+          <Reveal direction="right">
+            <div className="glass-card mt-12 rounded-[2.5rem] p-6">
+              <QuoteEstimator />
+            </div>
+          </Reveal>
         </div>
       </section>
 

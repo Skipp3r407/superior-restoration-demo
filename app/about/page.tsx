@@ -28,7 +28,7 @@ export default function AboutPage() {
 
       <section className="bg-white py-20 sm:py-24">
         <div className="section-shell grid gap-12 lg:grid-cols-2 lg:items-center">
-          <Reveal>
+          <Reveal direction="left">
             <div className="relative h-[22rem] overflow-hidden rounded-[2rem] shadow-premium sm:h-[30rem] sm:rounded-[2.5rem]">
               <Image
                 alt="Contractor reviewing property restoration work"
@@ -39,7 +39,7 @@ export default function AboutPage() {
               />
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} direction="right">
             <p className="text-sm font-extrabold uppercase tracking-[0.22em] text-rescue-600">
               Built for Trust
             </p>
@@ -74,7 +74,7 @@ export default function AboutPage() {
           />
           <Stagger className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {whyChooseUs.map((item, index) => (
-              <StaggerItem key={item}>
+              <StaggerItem direction={index % 3 === 0 ? "left" : index % 3 === 1 ? "up" : "right"} key={item}>
                 <div className="group glass-card h-full rounded-[2rem] p-6 transition duration-300 hover:-translate-y-2 hover:scale-[1.04] hover:bg-rescue-500">
                   <span className="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-rescue-400 transition group-hover:bg-white group-hover:text-rescue-600">
                     <Icon

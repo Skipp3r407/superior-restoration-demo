@@ -8,7 +8,7 @@ import { QuoteEstimator } from "@/components/QuoteEstimator";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ServiceVideoSection } from "@/components/ServiceVideoSection";
-import { Stagger } from "@/components/Motion";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { images, serviceNavGroups, services } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -51,12 +51,13 @@ export default function ServicesPage() {
             text="Every dropdown item has its own detailed page with relevant copy, FAQs, CTAs, and royalty-free imagery matched to that service."
             title="Browse every restoration section"
           />
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {serviceNavGroups.map((group) => (
-              <div
-                className="glass-card rounded-[2rem] p-5"
+          <Stagger className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {serviceNavGroups.map((group, index) => (
+              <StaggerItem
+                direction={index % 3 === 0 ? "left" : index % 3 === 1 ? "up" : "right"}
                 key={group.label}
               >
+                <div className="glass-card rounded-[2rem] p-5">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-rescue-600">
                   {group.label}
                 </p>
@@ -72,8 +73,9 @@ export default function ServicesPage() {
                   ))}
                 </div>
               </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -97,9 +99,11 @@ export default function ServicesPage() {
             text="Help visitors qualify urgency and service type before they submit the form."
             title="Guide the right customers to the right next step"
           />
-          <div className="glass-card mt-12 rounded-[2.5rem] p-6">
-            <QuoteEstimator />
-          </div>
+          <Reveal direction="right">
+            <div className="glass-card mt-12 rounded-[2.5rem] p-6">
+              <QuoteEstimator />
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -110,9 +114,11 @@ export default function ServicesPage() {
             text="Customers can request service through the website without waiting for a callback first."
             title="How online booking works"
           />
-          <div className="mt-12">
-            <BookingPathPanel />
-          </div>
+          <Reveal direction="left">
+            <div className="mt-12">
+              <BookingPathPanel />
+            </div>
+          </Reveal>
         </div>
       </section>
 
