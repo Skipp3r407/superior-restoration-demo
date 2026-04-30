@@ -68,7 +68,7 @@ export function Header() {
                       href={group.href}
                     >
                       <span className="absolute left-2 h-2 w-2 scale-0 rounded-full bg-rescue-500 opacity-0 shadow-[0_0_0_0_rgba(232,31,55,0.55)] transition group-hover/nav:scale-100 group-hover/nav:animate-ping group-hover/nav:bg-white group-hover/nav:opacity-100" />
-                      <span className="relative transition group-hover/nav:translate-x-2">
+                      <span className="relative whitespace-nowrap transition group-hover/nav:translate-x-2">
                         {group.label}
                       </span>
                       <ChevronDown className="relative h-4 w-4 transition group-hover/nav:translate-x-1 group-hover/nav:rotate-180" />
@@ -154,6 +154,9 @@ export function Header() {
             <Icon name="phone" className="h-4 w-4" />
             <span>{company.phone}</span>
           </a>
+          <ButtonLink href="/book-service" className="min-h-11 shrink-0 px-5">
+            Book Now
+          </ButtonLink>
         </div>
 
         <button
@@ -238,10 +241,11 @@ export function Header() {
                   </div>
                 </div>
               ))}
-              <div className="mt-5">
+              <div className="mt-5 grid grid-cols-2 gap-3">
                 <ButtonLink href={company.phoneHref} variant="dark">
                   Call Now
                 </ButtonLink>
+                <ButtonLink href="/book-service">Book Now</ButtonLink>
               </div>
             </nav>
           </motion.div>
