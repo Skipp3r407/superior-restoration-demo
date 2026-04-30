@@ -1,4 +1,4 @@
-import { CalendarCheck, Phone, Siren } from "lucide-react";
+import { Phone, Siren } from "lucide-react";
 import Link from "next/link";
 import { company } from "@/lib/site";
 
@@ -8,11 +8,6 @@ const actions = [
     href: company.phoneHref,
     icon: Phone,
     primary: true
-  },
-  {
-    label: "Book Service",
-    href: "/book-service",
-    icon: CalendarCheck
   },
   {
     label: "Emergency Help",
