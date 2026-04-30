@@ -8,7 +8,7 @@ export function EmergencyBar() {
     <section className="relative z-10 -mt-8">
       <div className="section-shell">
         <Reveal>
-          <div className="glass-card flex flex-col gap-5 rounded-[2rem] bg-navy-950/92 p-5 text-white sm:flex-row sm:items-center sm:justify-between lg:p-6">
+          <div className="glass-card flex flex-col gap-5 rounded-[2rem] bg-white p-5 text-navy-950 sm:flex-row sm:items-center sm:justify-between lg:p-6">
             <div className="flex items-center gap-4">
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-rescue-500 text-white shadow-glow">
                 <Icon name="clock" />
@@ -17,17 +17,17 @@ export function EmergencyBar() {
                 <p className="text-lg font-black">
                   24/7 Emergency Restoration Help
                 </p>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-slate-600">
                   Rapid response for water, fire, mold, and storm damage.
                 </p>
               </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
               <ButtonLink href={company.phoneHref}>Click to Call</ButtonLink>
-              <ButtonLink href="/book-service" variant="secondary">
+              <ButtonLink href="/book-service" variant="ghost">
                 Request Emergency Help
               </ButtonLink>
-              <ButtonLink href="/book-service" variant="secondary">
+              <ButtonLink href="/book-service" variant="dark">
                 Upload Damage Photos
               </ButtonLink>
             </div>
