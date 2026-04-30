@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { CheckCircle2, PhoneCall, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { company } from "@/lib/site";
@@ -15,42 +16,53 @@ const loadingSteps = [
 export function LoadingScreen() {
   const [visible, setVisible] = useState(true);
   const [step, setStep] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const stepTimer = window.setInterval(() => {
       setStep((current) => Math.min(current + 1, loadingSteps.length - 1));
-    }, 900);
+    }, shouldReduceMotion ? 400 : 650);
 
     const hideTimer = window.setTimeout(() => {
       setVisible(false);
-    }, 4000);
+    }, shouldReduceMotion ? 900 : 2800);
 
     return () => {
       window.clearInterval(stepTimer);
       window.clearTimeout(hideTimer);
     };
-  }, []);
+  }, [shouldReduceMotion]);
 
   return (
     <AnimatePresence>
       {visible ? (
         <motion.div
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-[100] grid place-items-center overflow-hidden bg-white text-navy-950"
-          exit={{ opacity: 0, transition: { duration: 0.55, ease: "easeInOut" } }}
-          initial={{ opacity: 1 }}
+          className="fixed inset-0 z-[100] grid place-items-center overflow-hidden bg-white px-4 text-navy-950"
+          exit={{ opacity: 0, transition: { duration: 0.45, ease: "easeInOut" } }}
+          initial={{ opacity: 0 }}
         >
-          <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-rescue-500/10 blur-3xl" />
-          <div className="absolute -right-24 bottom-16 h-72 w-72 rounded-full bg-navy-500/10 blur-3xl" />
-          <div className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(3,26,54,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(3,26,54,0.035)_1px,transparent_1px)] [background-size:54px_54px]" />
+          <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-rescue-500/12 blur-3xl sm:h-96 sm:w-96" />
+          <div className="absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-navy-500/12 blur-3xl sm:h-96 sm:w-96" />
+          <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(3,26,54,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(3,26,54,0.04)_1px,transparent_1px)] [background-size:46px_46px]" />
+          <motion.div
+            animate={shouldReduceMotion ? undefined : { scale: [1, 1.08, 1] }}
+            className="absolute h-72 w-72 rounded-full border border-rescue-400/20 sm:h-[30rem] sm:w-[30rem]"
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+          />
 
           <motion.div
             animate={{ y: 0, opacity: 1, scale: 1 }}
-            className="relative z-10 mx-4 w-full max-w-md p-8 text-center"
+            className="relative z-10 w-full max-w-lg overflow-hidden rounded-[2rem] border border-white/70 bg-white/86 p-6 text-center shadow-[0_30px_100px_rgba(3,26,54,0.16)] backdrop-blur-2xl sm:p-8"
             initial={{ y: 18, opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <div className="relative mx-auto h-24 w-80 max-w-full overflow-hidden">
+            <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-rescue-400/30 bg-rescue-500/15 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-rescue-400">
+              <ShieldCheck className="h-4 w-4" />
+              Emergency-ready
+            </div>
+
+            <div className="relative mx-auto h-20 w-72 max-w-full overflow-hidden rounded-3xl bg-white px-5 shadow-premium sm:h-24 sm:w-80">
               <Image
                 alt={`${company.name} logo`}
                 className="object-contain"
@@ -61,11 +73,11 @@ export function LoadingScreen() {
               />
             </div>
 
-            <p className="mt-8 text-sm font-black uppercase tracking-[0.24em] text-rescue-600">
+            <p className="mt-7 text-sm font-black uppercase tracking-[0.24em] text-rescue-600">
               24/7 Restoration Response
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight">
-              Loading Your Emergency Help Center
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+              Getting Help Ready
             </h2>
             <motion.p
               animate={{ opacity: 1, y: 0 }}
@@ -76,17 +88,37 @@ export function LoadingScreen() {
               {loadingSteps[step]}
             </motion.p>
 
-            <div className="mt-8 h-2 overflow-hidden rounded-full bg-navy-100">
+            <div className="mt-7 grid grid-cols-4 gap-2">
+              {loadingSteps.map((item, index) => (
+                <span
+                  aria-label={item}
+                  className={`h-2 rounded-full transition ${
+                    index <= step ? "bg-rescue-500" : "bg-navy-100"
+                  }`}
+                  key={item}
+                />
+              ))}
+            </div>
+
+            <div className="mt-5 h-2 overflow-hidden rounded-full bg-navy-100">
               <motion.div
                 animate={{ width: "100%" }}
-                className="h-full rounded-full bg-gradient-to-r from-navy-700 via-rescue-500 to-navy-500"
+                className="h-full rounded-full bg-gradient-to-r from-rescue-500 via-navy-500 to-navy-900"
                 initial={{ width: "0%" }}
-                transition={{ duration: 3.8, ease: "easeInOut" }}
+                transition={{ duration: shouldReduceMotion ? 0.8 : 2.6, ease: "easeInOut" }}
               />
             </div>
-            <p className="mt-4 text-xs font-bold text-slate-500">
-              For emergencies, call {company.phone}
-            </p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 rounded-3xl bg-navy-50 p-4 text-sm font-bold text-navy-950 sm:flex-row">
+              <span className="inline-flex items-center gap-2">
+                <PhoneCall className="h-4 w-4 text-rescue-500" />
+                {company.phone}
+              </span>
+              <span className="hidden h-4 w-px bg-navy-100 sm:block" />
+              <span className="inline-flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-rescue-500" />
+                Free estimate requests
+              </span>
+            </div>
           </motion.div>
         </motion.div>
       ) : null}

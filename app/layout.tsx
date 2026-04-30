@@ -57,7 +57,7 @@ export default function RootLayout({
         <InteractiveBackground />
         <Header />
         <LeftSideCTA />
-        <main className="pb-24 md:pb-0">{children}</main>
+        <main className="pb-40 md:pb-0">{children}</main>
         <Footer />
         <MobileStickyCTA />
         <ChatbotWidget />
