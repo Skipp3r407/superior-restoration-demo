@@ -28,7 +28,7 @@ export function ScrollProgress() {
       />
       <button
         aria-label="Back to top"
-        className={`fixed bottom-44 right-4 z-40 grid h-11 w-11 place-items-center rounded-full bg-white text-navy-950 shadow-premium ring-1 ring-navy-100 transition md:bottom-24 ${
+        className={`fixed bottom-56 right-4 z-40 grid h-11 w-11 place-items-center rounded-full bg-white text-navy-950 shadow-premium ring-1 ring-navy-100 transition md:bottom-24 ${
           showTop
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"
