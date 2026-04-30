@@ -154,9 +154,6 @@ export function Header() {
             <Icon name="phone" className="h-4 w-4" />
             <span>{company.phone}</span>
           </a>
-          <ButtonLink href="/book-service" className="min-h-11 shrink-0 px-5">
-            Book Service
-          </ButtonLink>
         </div>
 
         <button
@@ -241,11 +238,10 @@ export function Header() {
                   </div>
                 </div>
               ))}
-              <div className="mt-5 grid grid-cols-2 gap-3">
+              <div className="mt-5">
                 <ButtonLink href={company.phoneHref} variant="dark">
                   Call Now
                 </ButtonLink>
-                <ButtonLink href="/book-service">Book</ButtonLink>
               </div>
             </nav>
           </motion.div>
