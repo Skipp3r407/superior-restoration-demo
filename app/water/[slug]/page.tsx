@@ -12,9 +12,9 @@ import { Stagger, StaggerItem } from "@/components/Motion";
 import { allServicePages, company, serviceNavGroups } from "@/lib/site";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const waterGroup = serviceNavGroups.find((group) => group.label === "Water")!;
@@ -34,8 +34,9 @@ export function generateStaticParams() {
   return waterSlugs.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const service = getWaterService(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getWaterService(slug);
 
   if (!service) {
     return {};
@@ -47,8 +48,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function WaterServiceDetailPage({ params }: PageProps) {
-  const service = getWaterService(params.slug);
+export default async function WaterServiceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const service = getWaterService(slug);
 
   if (!service) {
     notFound();

@@ -12,9 +12,9 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { allServicePages, company, images, type Service } from "@/lib/site";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const serviceDetails = {
@@ -363,8 +363,9 @@ export function generateStaticParams() {
   return allServicePages.map((service) => ({ slug: service.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const service = allServicePages.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = allServicePages.find((item) => item.slug === slug);
 
   if (!service) {
     return {};
@@ -376,8 +377,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function ServiceDetailPage({ params }: PageProps) {
-  const service = allServicePages.find((item) => item.slug === params.slug);
+export default async function ServiceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const service = allServicePages.find((item) => item.slug === slug);
 
   if (!service) {
     notFound();
