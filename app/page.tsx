@@ -31,7 +31,7 @@ export default function Home() {
       <section className="relative isolate overflow-hidden bg-navy-950 text-white">
         <Image
           alt="Emergency restoration crew preparing equipment"
-          className="object-cover opacity-40"
+          className="object-cover opacity-55"
           fill
           priority
           sizes="100vw"

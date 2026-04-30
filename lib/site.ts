@@ -48,7 +48,7 @@ export const navItems = [
 
 export const images = {
   hero:
-    "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=2000&q=85",
+    "https://images.unsplash.com/photo-1724230442705-646dc7c86943?auto=format&fit=crop&w=2000&q=85",
   emergencyCrew:
     "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=85",
   inspection:

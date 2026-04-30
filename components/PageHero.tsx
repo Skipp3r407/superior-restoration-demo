@@ -21,7 +21,7 @@ export function PageHero({
       {image ? (
         <Image
           alt=""
-          className="object-cover opacity-32"
+          className="object-cover opacity-[0.47]"
           fill
           priority
           sizes="100vw"
