@@ -38,7 +38,7 @@ export function LoadingScreen() {
       {visible ? (
         <motion.div
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-[100] grid place-items-center overflow-hidden bg-white px-4 text-navy-950"
+          className="fixed inset-0 z-[100] flex h-[100dvh] items-center justify-center overflow-y-auto bg-white px-4 py-6 text-navy-950"
           exit={{ opacity: 0, transition: { duration: 0.45, ease: "easeInOut" } }}
           initial={{ opacity: 0 }}
         >
@@ -53,7 +53,7 @@ export function LoadingScreen() {
 
           <motion.div
             animate={{ y: 0, opacity: 1, scale: 1 }}
-            className="relative z-10 w-full max-w-lg overflow-hidden rounded-[2rem] border border-white/70 bg-white/86 p-6 text-center shadow-[0_30px_100px_rgba(3,26,54,0.16)] backdrop-blur-2xl sm:p-8"
+            className="relative z-10 my-auto max-h-[calc(100dvh-3rem)] w-full max-w-lg overflow-y-auto rounded-[2rem] border border-white/70 bg-white/86 p-5 text-center shadow-[0_30px_100px_rgba(3,26,54,0.16)] backdrop-blur-2xl sm:p-8"
             initial={{ y: 18, opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
@@ -62,7 +62,7 @@ export function LoadingScreen() {
               Emergency-ready
             </div>
 
-            <div className="relative mx-auto h-20 w-72 max-w-full overflow-hidden rounded-3xl bg-white px-5 shadow-premium sm:h-24 sm:w-80">
+            <div className="relative mx-auto h-16 w-60 max-w-full overflow-hidden rounded-3xl bg-white px-5 shadow-premium sm:h-24 sm:w-80">
               <Image
                 alt={`${company.name} logo`}
                 className="object-contain"
@@ -73,10 +73,10 @@ export function LoadingScreen() {
               />
             </div>
 
-            <p className="mt-7 text-sm font-black uppercase tracking-[0.24em] text-rescue-600">
+            <p className="mt-5 text-xs font-black uppercase tracking-[0.24em] text-rescue-600 sm:mt-7 sm:text-sm">
               24/7 Restoration Response
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+            <h2 className="mt-3 text-2xl font-black tracking-tight sm:text-4xl">
               Getting Help Ready
             </h2>
             <motion.p
@@ -88,7 +88,7 @@ export function LoadingScreen() {
               {loadingSteps[step]}
             </motion.p>
 
-            <div className="mt-7 grid grid-cols-4 gap-2">
+            <div className="mt-5 grid grid-cols-4 gap-2 sm:mt-7">
               {loadingSteps.map((item, index) => (
                 <span
                   aria-label={item}
@@ -108,7 +108,7 @@ export function LoadingScreen() {
                 transition={{ duration: shouldReduceMotion ? 0.8 : 2.6, ease: "easeInOut" }}
               />
             </div>
-            <div className="mt-6 flex flex-col items-center justify-center gap-3 rounded-3xl bg-navy-50 p-4 text-sm font-bold text-navy-950 sm:flex-row">
+            <div className="mt-5 flex flex-col items-center justify-center gap-2 rounded-3xl bg-navy-50 p-3 text-sm font-bold text-navy-950 sm:mt-6 sm:flex-row sm:gap-3 sm:p-4">
               <span className="inline-flex items-center gap-2">
                 <PhoneCall className="h-4 w-4 text-rescue-500" />
                 {company.phone}
