@@ -13,7 +13,7 @@ export function Footer() {
             <span className="relative block h-16 w-56 overflow-hidden">
               <Image
                 alt={`${company.name} logo`}
-                className="object-contain"
+                className="object-contain object-left"
                 fill
                 sizes="224px"
                 src={company.logo}
