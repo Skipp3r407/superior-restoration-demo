@@ -10,12 +10,12 @@ export function Footer() {
       <div className="section-shell grid gap-10 lg:grid-cols-[1.2fr_0.7fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
-            <span className="relative block h-16 w-56 overflow-hidden">
+            <span className="relative block h-16 w-36 overflow-hidden">
               <Image
                 alt={`${company.name} logo`}
-                className="object-contain"
+                className="object-contain object-left"
                 fill
-                sizes="224px"
+                sizes="144px"
                 src={company.logo}
               />
             </span>

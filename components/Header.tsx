@@ -25,25 +25,26 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/40 bg-white/88 backdrop-blur-2xl">
-      <div className="section-shell flex min-h-20 items-center justify-between gap-4">
-        <Link
-          className="group flex items-center gap-3"
-          href="/"
-          onClick={() => setOpen(false)}
-        >
-          <span className="relative block h-12 w-40 overflow-hidden transition group-hover:scale-[1.02] sm:w-48">
-            <Image
-              alt={`${company.name} logo`}
-              className="object-contain"
-              fill
-              priority
-              sizes="(min-width: 640px) 192px, 160px"
-              src={company.logo}
-            />
-          </span>
-        </Link>
+      <div className="mx-auto flex min-h-20 w-full max-w-[96rem] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-5">
+          <Link
+            className="group flex items-center gap-3"
+            href="/"
+            onClick={() => setOpen(false)}
+          >
+            <span className="relative block h-28 w-60 overflow-hidden transition group-hover:scale-[1.02] sm:w-64">
+              <Image
+                alt={`${company.name} logo`}
+                className="object-contain object-left"
+                fill
+                priority
+                sizes="(min-width: 640px) 256px, 240px"
+                src={company.logo}
+              />
+            </span>
+          </Link>
 
-        <nav className="hidden items-center gap-0.5 xl:flex">
+          <nav className="hidden items-center gap-0.5 xl:flex">
           {navItems.map((item) => {
             const active =
               pathname === item.href ||
@@ -144,7 +145,8 @@ export function Header() {
               </Link>
             );
           })}
-        </nav>
+          </nav>
+        </div>
 
         <div className="hidden items-center gap-3 xl:flex">
           <a
@@ -162,7 +164,7 @@ export function Header() {
         <button
           aria-expanded={open}
           aria-label="Toggle navigation"
-          className="grid h-12 w-12 place-items-center rounded-full border border-navy-100 bg-white text-navy-950 shadow-sm transition hover:border-rescue-500 hover:bg-rescue-500 hover:text-white xl:hidden"
+          className="ml-auto grid h-12 w-12 place-items-center rounded-full border border-navy-100 bg-white text-navy-950 shadow-sm transition hover:border-rescue-500 hover:bg-rescue-500 hover:text-white xl:hidden"
           onClick={() => setOpen((current) => !current)}
           type="button"
         >

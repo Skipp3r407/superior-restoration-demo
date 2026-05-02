@@ -2,6 +2,7 @@ export const company = {
   name: "Superior Restoration Services",
   shortName: "Superior",
   logo: "/brand/superior-main-logo.png",
+  icon: "/brand/superior-house-mark-padded.png",
   phone: "321-588-1156",
   phoneHref: "tel:+13215881156",
   email: "office@superiorrestorationsfl.com",

@@ -86,7 +86,9 @@ export function ChatbotWidget() {
                   <ChevronLeft className="h-6 w-6" />
                 </button>
                 <div>
-                  <p className="text-base font-black leading-tight md:text-xl">SuperBot</p>
+                  <p className="text-base font-black leading-tight md:text-xl">
+                    Superior Bot
+                  </p>
                   <p className="text-[0.68rem] font-bold text-white/75 md:text-xs">
                     Superior Restoration assistant
                   </p>
@@ -114,18 +116,18 @@ export function ChatbotWidget() {
                   {message.role === "assistant" ? (
                     <span className="relative block h-9 w-9 shrink-0 overflow-hidden rounded-full bg-white shadow-sm ring-1 ring-navy-100 md:h-11 md:w-11">
                       <Image
-                        alt={`${company.name} logo`}
-                        className="object-contain p-1.5"
+                        alt={`${company.name} house mark`}
+                        className="object-contain"
                         fill
                         sizes="44px"
-                        src={company.logo}
+                        src={company.icon}
                       />
                     </span>
                   ) : null}
                   <div>
                     {message.role === "assistant" && index === 0 ? (
                       <p className="mb-1 text-xs font-bold text-slate-600 md:mb-2">
-                        SuperBot
+                        Superior Bot
                       </p>
                     ) : null}
                     <div
@@ -227,10 +229,10 @@ export function ChatbotWidget() {
             <span className="relative h-9 w-9 overflow-hidden rounded-full bg-white md:h-10 md:w-10">
               <Image
                 alt={`${company.name} chat`}
-                className="object-contain p-1"
+                className="object-contain"
                 fill
                 sizes="40px"
-                src={company.logo}
+                src={company.icon}
               />
             </span>
           )}

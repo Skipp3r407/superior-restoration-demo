@@ -9,6 +9,7 @@ import { LeftSideCTA } from "@/components/LeftSideCTA";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { company } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -26,15 +27,15 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://superiorrestorationsfl.com"),
   icons: {
     icon: [
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.png", sizes: "192x192", type: "image/png" }
+      { url: "/favicon.ico", sizes: "any" },
+      { url: company.icon, type: "image/png" }
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }]
   },
   openGraph: {
     images: [
       {
-        url: "/brand/superior-main-logo.png",
+        url: company.logo,
         width: 392,
         height: 92,
         alt: "Superior Restoration Services logo"
