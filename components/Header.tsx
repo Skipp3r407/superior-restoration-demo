@@ -35,17 +35,19 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [showTopBar, setShowTopBar] = useState(true);
-  const lastScrollY = useRef(0);
+  const lastTopBarState = useRef(true);
 
   useEffect(() => {
     function handleScroll() {
-      const currentScrollY = window.scrollY;
-      setShowTopBar(
-        currentScrollY < 24 || currentScrollY < lastScrollY.current
-      );
-      lastScrollY.current = currentScrollY;
+      const shouldShowTopBar = window.scrollY < 80;
+
+      if (shouldShowTopBar !== lastTopBarState.current) {
+        lastTopBarState.current = shouldShowTopBar;
+        setShowTopBar(shouldShowTopBar);
+      }
     }
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -74,13 +76,13 @@ export function Header() {
               return (
                 <a
                   aria-label={`Visit ${company.name} on ${link.label}`}
-                  className="transition hover:-translate-y-0.5 hover:text-white/80"
+                  className="text-white/75 transition hover:-translate-y-0.5 hover:text-white"
                   href={link.href}
                   key={link.label}
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <SocialIcon aria-hidden="true" className="h-3 w-3" />
+                  <SocialIcon aria-hidden="true" className="h-3.5 w-3.5" />
                 </a>
               );
             })}

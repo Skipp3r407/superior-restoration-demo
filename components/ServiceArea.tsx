@@ -27,13 +27,13 @@ export function ServiceArea() {
         <div className="relative rounded-[2.5rem] bg-navy-950 p-6 text-white shadow-premium">
           <div
             aria-hidden="true"
-            className="absolute inset-0 rounded-[2.5rem] bg-cover bg-center opacity-35 transition-all duration-500"
+            className="absolute inset-0 rounded-[2.5rem] bg-cover bg-center opacity-85 transition-all duration-500"
             style={{
               backgroundImage: `url("${serviceAreaImages[activeArea]}")`
             }}
           />
-          <div className="absolute inset-0 rounded-[2.5rem] bg-navy-950/72" />
-          <div className="absolute inset-6 rounded-[2rem] border border-white/10 bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px]" />
+          <div className="absolute inset-0 rounded-[2.5rem] bg-navy-950/42" />
+          <div className="absolute inset-6 rounded-[2rem] border border-white/18 bg-[linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:32px_32px]" />
           <div className="relative z-10">
             <div className="mb-5 flex items-center gap-3">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-rescue-500">
@@ -48,7 +48,7 @@ export function ServiceArea() {
                     className={`w-full rounded-2xl border px-4 py-3 text-left font-bold transition hover:-translate-y-0.5 hover:border-rescue-400 hover:bg-rescue-500 hover:text-white hover:shadow-[0_18px_42px_rgba(232,31,55,0.28)] focus:outline-none focus:ring-2 focus:ring-rescue-400 ${
                       activeArea === area
                         ? "border-rescue-400 bg-rescue-500 text-white shadow-[0_18px_42px_rgba(232,31,55,0.28)]"
-                        : "border-white/10 bg-white/8 text-white/85"
+                        : "border-white/16 bg-navy-950/48 text-white"
                     }`}
                     onBlur={() => setActiveArea(serviceAreas[0])}
                     onFocus={() => setActiveArea(area)}
