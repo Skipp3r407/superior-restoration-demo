@@ -1015,6 +1015,18 @@ export const serviceAreas = [
   "Central Florida"
 ];
 
+export const serviceAreaImages: Record<string, string> = {
+  Orlando: "https://source.unsplash.com/1200x800/?orlando,florida,skyline",
+  "Winter Park": "https://source.unsplash.com/1200x800/?winter-park,florida",
+  "East Orlando": "https://source.unsplash.com/1200x800/?east-orlando,florida",
+  Kissimmee: "https://source.unsplash.com/1200x800/?kissimmee,florida",
+  "Lake Mary": "https://source.unsplash.com/1200x800/?lake-mary,florida",
+  Sanford: "https://source.unsplash.com/1200x800/?sanford,florida",
+  "Altamonte Springs": "https://source.unsplash.com/1200x800/?altamonte-springs,florida",
+  Clermont: "https://source.unsplash.com/1200x800/?clermont,florida",
+  "Central Florida": "https://source.unsplash.com/1200x800/?central-florida"
+};
+
 export const testimonials = [
   {
     quote:

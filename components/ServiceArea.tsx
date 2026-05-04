@@ -1,8 +1,13 @@
+"use client";
+
 import { MapPin } from "lucide-react";
+import { useState } from "react";
 import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
-import { company, serviceAreas } from "@/lib/site";
+import { company, serviceAreaImages, serviceAreas } from "@/lib/site";
 
 export function ServiceArea() {
+  const [activeArea, setActiveArea] = useState(serviceAreas[0]);
+
   return (
     <section className="overflow-hidden bg-white py-20 sm:py-24">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -20,6 +25,14 @@ export function ServiceArea() {
           </p>
         </Reveal>
         <div className="relative rounded-[2.5rem] bg-navy-950 p-6 text-white shadow-premium">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 rounded-[2.5rem] bg-cover bg-center opacity-35 transition-all duration-500"
+            style={{
+              backgroundImage: `url("${serviceAreaImages[activeArea]}")`
+            }}
+          />
+          <div className="absolute inset-0 rounded-[2.5rem] bg-navy-950/72" />
           <div className="absolute inset-6 rounded-[2rem] border border-white/10 bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px]" />
           <div className="relative z-10">
             <div className="mb-5 flex items-center gap-3">
@@ -31,9 +44,19 @@ export function ServiceArea() {
             <Stagger className="grid gap-3 sm:grid-cols-2">
               {serviceAreas.map((area, index) => (
                 <StaggerItem direction={index % 2 === 0 ? "left" : "right"} key={area}>
-                  <div className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 font-bold text-white/85 transition hover:-translate-y-0.5 hover:border-rescue-400 hover:bg-rescue-500 hover:text-white hover:shadow-[0_18px_42px_rgba(232,31,55,0.28)]">
+                  <button
+                    className={`w-full rounded-2xl border px-4 py-3 text-left font-bold transition hover:-translate-y-0.5 hover:border-rescue-400 hover:bg-rescue-500 hover:text-white hover:shadow-[0_18px_42px_rgba(232,31,55,0.28)] focus:outline-none focus:ring-2 focus:ring-rescue-400 ${
+                      activeArea === area
+                        ? "border-rescue-400 bg-rescue-500 text-white shadow-[0_18px_42px_rgba(232,31,55,0.28)]"
+                        : "border-white/10 bg-white/8 text-white/85"
+                    }`}
+                    onBlur={() => setActiveArea(serviceAreas[0])}
+                    onFocus={() => setActiveArea(area)}
+                    onMouseEnter={() => setActiveArea(area)}
+                    type="button"
+                  >
                     {area}
-                  </div>
+                  </button>
                 </StaggerItem>
               ))}
             </Stagger>

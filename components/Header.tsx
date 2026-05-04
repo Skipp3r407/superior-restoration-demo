@@ -13,7 +13,6 @@ import {
   FaYoutube
 } from "react-icons/fa6";
 import { ButtonLink } from "@/components/Button";
-import { Icon } from "@/components/Icons";
 import { company, navItems, serviceNavGroups, socialLinks } from "@/lib/site";
 
 const groupDescriptions: Record<string, string> = {
@@ -228,13 +227,6 @@ export function Header() {
         </div>
 
         <div className="hidden items-center gap-3 xl:flex">
-          <a
-            className="inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-navy-100 bg-white px-4 text-sm font-black text-navy-950 shadow-sm transition hover:border-rescue-500 hover:bg-rescue-500 hover:text-white"
-            href={company.phoneHref}
-          >
-            <Icon name="phone" className="h-4 w-4" />
-            <span>{company.phone}</span>
-          </a>
           <ButtonLink href="/book-service" className="min-h-11 shrink-0 px-5">
             Book Now
           </ButtonLink>
