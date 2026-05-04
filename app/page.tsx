@@ -137,17 +137,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="overflow-hidden bg-rescue-500 py-2 text-white">
-        <div className="flex w-max animate-[marquee_28s_linear_infinite] items-center">
+      <section className="h-8 overflow-hidden bg-rescue-500 text-white">
+        <div className="marquee-track flex h-8 w-max items-center">
           {[...Array(2)].map((_, groupIndex) => (
             <div
               aria-hidden={groupIndex === 1}
-              className="flex shrink-0 items-center"
+              className="flex h-8 shrink-0 items-center"
               key={groupIndex}
             >
               {[...Array(8)].map((_, index) => (
                 <span
-                  className="mx-6 whitespace-nowrap text-xs font-black uppercase tracking-[0.16em] sm:text-sm"
+                  className="mx-6 block whitespace-nowrap text-xs font-black uppercase leading-8 tracking-[0.16em] sm:text-sm"
                   key={`${groupIndex}-${index}`}
                 >
                   License - {company.licenses}
