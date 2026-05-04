@@ -49,15 +49,6 @@ export function LoadingScreen() {
           exit={{ opacity: 0, transition: { duration: 0.45, ease: "easeInOut" } }}
           initial={{ opacity: 0 }}
         >
-          <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-rescue-500/12 blur-3xl sm:h-96 sm:w-96" />
-          <div className="absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-navy-500/12 blur-3xl sm:h-96 sm:w-96" />
-          <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(3,26,54,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(3,26,54,0.04)_1px,transparent_1px)] [background-size:46px_46px]" />
-          <motion.div
-            animate={shouldReduceMotion ? undefined : { scale: [1, 1.08, 1] }}
-            className="absolute h-72 w-72 rounded-full border border-rescue-400/20 sm:h-[30rem] sm:w-[30rem]"
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          />
-
           <motion.div
             animate={{
               y: 0,
