@@ -137,26 +137,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="h-8 overflow-hidden bg-rescue-500 text-white">
-        <div className="marquee-track flex h-8 w-max items-center">
-          {[...Array(2)].map((_, groupIndex) => (
-            <div
-              aria-hidden={groupIndex === 1}
-              className="flex h-8 shrink-0 items-center"
-              key={groupIndex}
-            >
-              {[...Array(8)].map((_, index) => (
-                <span
-                  className="mx-6 block whitespace-nowrap text-xs font-black uppercase leading-8 tracking-[0.16em] sm:text-sm"
-                  key={`${groupIndex}-${index}`}
-                >
-                  License - {company.licenses}
-                  <span className="mx-6">Call Us Today</span>
-                  {company.phone}
-                </span>
-              ))}
-            </div>
-          ))}
+      <section className="bg-rescue-500 py-3 text-white">
+        <div className="section-shell flex flex-col items-center justify-center gap-2 text-center sm:flex-row sm:gap-4">
+          <p className="text-xs font-black uppercase tracking-[0.18em] sm:text-sm">
+            Licensed Restoration Services
+          </p>
+          <span className="hidden h-4 w-px bg-white/35 sm:block" />
+          <p className="text-sm font-bold text-white/90">
+            Superior Restoration Services is licensed in Florida: {company.licenses}
+          </p>
         </div>
       </section>
 
