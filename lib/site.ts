@@ -39,6 +39,57 @@ export const socialLinks = [
   }
 ];
 
+export const credentialBadges = [
+  {
+    title: "Business Member Sheriff's Association 2021-2022",
+    src: "/credentials/sheriffs-association-2021-2022.webp",
+    width: 250,
+    height: 84
+  },
+  {
+    title: "HomeAdvisor Screened and Approved",
+    src: "/credentials/homeadvisor-screened-approved.webp",
+    width: 250,
+    height: 84
+  },
+  {
+    title: "IICRC Certified",
+    src: "/credentials/iicrc-certified.webp",
+    width: 250,
+    height: 84
+  },
+  {
+    title: "Business Member Sheriff's Association 2022-2023",
+    src: "/credentials/sheriffs-association-2022-2023.webp",
+    width: 250,
+    height: 84
+  },
+  {
+    title: "BBB Accredited Business A+ Rating",
+    src: "/credentials/bbb-accredited-a-plus.webp",
+    width: 250,
+    height: 84
+  },
+  {
+    title: "Business Member Sheriff's Association 2024-2025",
+    src: "/credentials/sheriffs-association-2024-2025.webp",
+    width: 250,
+    height: 84
+  },
+  {
+    title: "NORMI Certified",
+    src: "/credentials/normi-certified.webp",
+    width: 250,
+    height: 84
+  },
+  {
+    title: "East Orlando Chamber of Commerce",
+    src: "/credentials/east-orlando-chamber.webp",
+    width: 1500,
+    height: 664
+  }
+];
+
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },

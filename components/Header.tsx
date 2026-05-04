@@ -1,14 +1,20 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube
+} from "react-icons/fa6";
 import { ButtonLink } from "@/components/Button";
 import { Icon } from "@/components/Icons";
-import { company, navItems, serviceNavGroups } from "@/lib/site";
+import { company, navItems, serviceNavGroups, socialLinks } from "@/lib/site";
 
 const groupDescriptions: Record<string, string> = {
   Water: "Leaks, floods, pipe breaks, storm water, and water cleanup.",
@@ -18,13 +24,86 @@ const groupDescriptions: Record<string, string> = {
   "Other Services": "Commercial restoration and property-focused support."
 };
 
+const socialIconMap = {
+  Facebook: FaFacebookF,
+  Instagram: FaInstagram,
+  YouTube: FaYoutube,
+  LinkedIn: FaLinkedinIn
+};
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const [showTopBar, setShowTopBar] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    function handleScroll() {
+      const currentScrollY = window.scrollY;
+      setShowTopBar(
+        currentScrollY < 24 || currentScrollY < lastScrollY.current
+      );
+      lastScrollY.current = currentScrollY;
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/40 bg-white/88 backdrop-blur-2xl">
+      <motion.div
+        animate={{
+          height: showTopBar ? 28 : 0,
+          opacity: showTopBar ? 1 : 0
+        }}
+        className="overflow-hidden bg-rescue-500 text-white"
+        initial={false}
+        transition={{ duration: 0.24, ease: "easeInOut" }}
+      >
+        <div className="mx-auto flex h-7 w-full max-w-[96rem] items-center justify-between gap-4 px-4 text-[0.68rem] font-bold sm:px-6 lg:px-8 xl:-translate-x-6 2xl:-translate-x-10">
+          <p className="hidden whitespace-nowrap uppercase tracking-[0.16em] sm:block">
+            24/7 Emergency Restoration
+          </p>
+          <div className="flex items-center gap-3">
+            {socialLinks.map((link) => {
+              const SocialIcon =
+                socialIconMap[link.label as keyof typeof socialIconMap];
+
+              return (
+                <a
+                  aria-label={`Visit ${company.name} on ${link.label}`}
+                  className="transition hover:-translate-y-0.5 hover:text-white/80"
+                  href={link.href}
+                  key={link.label}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <SocialIcon aria-hidden="true" className="h-3 w-3" />
+                </a>
+              );
+            })}
+          </div>
+          <div className="hidden items-center gap-4 md:flex">
+            <a
+              className="inline-flex items-center gap-1.5 whitespace-nowrap transition hover:text-white/80"
+              href={company.emailHref}
+            >
+              <Mail className="h-3 w-3" />
+              {company.email}
+            </a>
+            <a
+              className="inline-flex items-center gap-1.5 whitespace-nowrap transition hover:text-white/80"
+              href={company.phoneHref}
+            >
+              <Phone className="h-3 w-3" />
+              {company.phone}
+            </a>
+          </div>
+        </div>
+      </motion.div>
       <div className="mx-auto flex min-h-20 w-full max-w-[96rem] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 xl:-translate-x-6 2xl:-translate-x-10">
         <div className="flex items-center gap-5">
           <Link

@@ -16,7 +16,7 @@ export function Footer() {
                 className="object-contain object-left"
                 fill
                 sizes="224px"
-                src={company.logo}
+                src="/brand/footerlogo.png"
               />
             </span>
           </div>

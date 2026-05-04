@@ -17,7 +17,14 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { ServiceVideoSection } from "@/components/ServiceVideoSection";
 import { TestimonialSection } from "@/components/TestimonialSection";
 import { TrustBadges } from "@/components/TrustBadges";
-import { company, globalFaqs, images, services, whyChooseUs } from "@/lib/site";
+import {
+  company,
+  credentialBadges,
+  globalFaqs,
+  images,
+  services,
+  whyChooseUs
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Central Florida Restoration Services | Water, Fire, Mold and Storm",
@@ -127,6 +134,58 @@ export default function Home() {
           <div className="glass-card rounded-[2.5rem] p-6">
             <QuoteEstimator />
           </div>
+        </div>
+      </section>
+
+      <section className="overflow-hidden bg-rescue-500 py-2 text-white">
+        <div className="flex w-max animate-[marquee_28s_linear_infinite] items-center">
+          {[...Array(2)].map((_, groupIndex) => (
+            <div
+              aria-hidden={groupIndex === 1}
+              className="flex shrink-0 items-center"
+              key={groupIndex}
+            >
+              {[...Array(8)].map((_, index) => (
+                <span
+                  className="mx-6 whitespace-nowrap text-xs font-black uppercase tracking-[0.16em] sm:text-sm"
+                  key={`${groupIndex}-${index}`}
+                >
+                  License - {company.licenses}
+                  <span className="mx-6">Call Us Today</span>
+                  {company.phone}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white py-16 sm:py-20">
+        <div className="section-shell">
+          <SectionHeading
+            eyebrow="Certified & Trusted"
+            text="Professional memberships, certifications, and local credibility markers from Superior Restoration Services."
+            title="Restoration credentials you can verify"
+          />
+          <Reveal>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {credentialBadges.map((badge) => (
+                <div
+                  className="flex min-h-28 items-center justify-center rounded-2xl border border-navy-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-rescue-500 hover:shadow-premium"
+                  key={badge.title}
+                >
+                  <Image
+                    alt={badge.title}
+                    className="max-h-20 w-auto object-contain"
+                    height={badge.height}
+                    sizes="(min-width: 1024px) 22vw, (min-width: 640px) 44vw, 88vw"
+                    src={badge.src}
+                    width={badge.width}
+                  />
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
