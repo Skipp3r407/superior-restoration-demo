@@ -105,10 +105,10 @@ export function Header() {
           </div>
         </div>
       </motion.div>
-      <div className="mx-auto flex min-h-20 w-full max-w-[96rem] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 xl:-translate-x-6 2xl:-translate-x-10">
-        <div className="flex items-center gap-5">
+      <div className="mx-auto flex min-h-20 w-full max-w-[96rem] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 xl:justify-center">
+        <div className="flex items-center gap-4 sm:gap-5 xl:gap-6">
           <Link
-            className="group flex items-center gap-3"
+            className="group flex shrink-0 items-center gap-3"
             href="/"
             onClick={() => setOpen(false)}
           >
@@ -226,10 +226,11 @@ export function Header() {
             );
           })}
           </nav>
-        </div>
 
-        <div className="hidden items-center gap-3 xl:flex">
-          <ButtonLink href="/book-service" className="min-h-11 shrink-0 px-5">
+          <ButtonLink
+            className="hidden min-h-11 shrink-0 px-5 xl:inline-flex"
+            href="/book-service"
+          >
             Book Now
           </ButtonLink>
         </div>
