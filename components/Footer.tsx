@@ -29,17 +29,7 @@ export function Footer() {
             commercial restoration across Central Florida.
           </p>
           <p className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm leading-6 text-white/65">
-            License: {company.licenses}. This upgraded website experience was
-            created by{" "}
-            <a
-              className="font-black text-white underline-offset-4 transition hover:text-rescue-500 hover:underline"
-              href="https://elevatedigitalstudios.net/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Elevate Digital Studio
-            </a>{" "}
-            with a website intake form and damage photo upload experience.
+            License: {company.licenses}.
           </p>
           <div className="mt-5">
             <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-white/55">
@@ -127,6 +117,37 @@ export function Footer() {
             Book Service
           </Link>
         </div>
+      </div>
+
+      <div className="section-shell mt-12 border-t border-white/10 pt-10 text-center">
+        <p className="text-sm text-white/50">Website Designed By</p>
+        <a
+          className="mt-4 inline-flex items-center justify-center gap-3 transition hover:opacity-85"
+          href="https://www.elevatedigitalstudios.net/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <span className="relative block h-12 w-12 shrink-0 overflow-hidden rounded-full bg-white">
+            <Image
+              alt="Elevate Digital Studios logo"
+              className="object-contain p-1"
+              fill
+              sizes="48px"
+              src="/brand/elevate-digital-studios-logo.png"
+            />
+          </span>
+          <span className="text-lg font-bold text-white/90">
+            Elevate Digital Studios
+          </span>
+        </a>
+        <a
+          className="mt-3 block text-sm text-white/50 transition hover:text-white/75"
+          href="https://www.elevatedigitalstudios.net/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          www.elevatedigitalstudios.net
+        </a>
       </div>
     </footer>
   );
