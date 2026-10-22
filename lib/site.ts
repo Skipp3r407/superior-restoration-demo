@@ -95,6 +95,7 @@ export const navItems = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Insurance", href: "/insurance-claims" },
   { label: "Contact", href: "/contact" }
 ];
 
@@ -1150,7 +1151,90 @@ export const chatbotKnowledge = Array.from({ length: 100 }, (_, index) => {
 
 export const bookingServices = [
   ...services.map((service) => service.title),
+  "Mold Inspection & Air Testing",
   "General Inspection / Estimate"
+];
+
+export const moldAreaSizes = [
+  "Small spot (under 10 sq ft)",
+  "One wall or ceiling (10-100 sq ft)",
+  "Large area / several rooms (100+ sq ft)",
+  "I can smell it but can't see it"
+];
+
+export const moldSigns = [
+  "Musty or earthy smell",
+  "Recent leak, flood or AC overflow",
+  "Stains or growth on walls / ceiling",
+  "Coming from AC vents or ducts",
+  "Allergy symptoms that improve outside",
+  "Soft, warped or bubbling drywall"
+];
+
+export const insuranceCarriers = [
+  "Citizens Property Insurance",
+  "State Farm",
+  "Universal Property",
+  "Allstate",
+  "USAA",
+  "Progressive / American Strategic",
+  "Security First",
+  "Other / not listed"
+];
+
+export function nextStepsTimeline(mold: boolean) {
+  return [
+    { title: "Request reviewed", text: "The office checks your details and photos and confirms your window." },
+    {
+      title: mold ? "Free inspection + moisture mapping" : "Free inspection",
+      text: mold
+        ? "A technician finds the moisture source, maps affected areas and takes air samples if requested."
+        : "A technician measures the damage and explains the plan on site."
+    },
+    { title: "Written plan & insurance report", text: "Photo report with readings, scope and price, ready for your adjuster." },
+    {
+      title: mold ? "Containment, removal & clearance" : "Restoration work",
+      text: mold
+        ? "Sealed containment, HEPA air scrubbing, removal, then post-remediation testing before we leave."
+        : "Drying, cleanup and repairs with updates by text at every stage."
+    }
+  ];
+}
+
+export const moldServicePackages = [
+  {
+    title: "Mold Inspection",
+    tag: "Free",
+    text: "Visual inspection, moisture meter and thermal scan to find the source, with a photo report.",
+    points: ["Moisture source located", "Photo report", "Same-week visits"]
+  },
+  {
+    title: "Air Quality & Mold Testing",
+    tag: "Lab results",
+    text: "Indoor and outdoor air samples and surface swabs sent to an independent lab.",
+    points: ["Spore counts by room", "Results explained in plain English", "Ideal before buying or renting"]
+  },
+  {
+    title: "Mold Remediation",
+    tag: "Most requested",
+    text: "Sealed containment, negative air with HEPA filtration, removal of affected materials and antimicrobial treatment.",
+    points: ["Containment barriers", "HEPA air scrubbers", "Moisture fixed at the source"]
+  },
+  {
+    title: "Clearance Testing",
+    tag: "Proof it's gone",
+    text: "Post-remediation air test so you, your family and your insurer know the job is finished.",
+    points: ["Before/after spore counts", "Certificate for your records", "Ready for rebuild"]
+  }
+];
+
+export const remediationStages = [
+  { title: "Inspection", text: "Source found, areas mapped, photos taken." },
+  { title: "Containment", text: "Plastic barriers and negative air seal off the work area." },
+  { title: "Removal", text: "Affected drywall, insulation and materials removed and bagged." },
+  { title: "Cleaning", text: "HEPA vacuuming, antimicrobial treatment, drying to target levels." },
+  { title: "Clearance", text: "Air test confirms normal levels before containment comes down." },
+  { title: "Rebuild", text: "Drywall, paint and trim put back so the room looks like nothing happened." }
 ];
 
 export const bookingUrgencies = [
