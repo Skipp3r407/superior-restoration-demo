@@ -66,12 +66,12 @@ export function ChatbotWidget() {
   }
 
   return (
-    <div className="fixed bottom-36 right-3 z-50 md:bottom-6 md:right-4">
+    <div className="fixed bottom-[calc(10.75rem+env(safe-area-inset-bottom))] right-3 z-50 md:bottom-6 md:right-4">
       <AnimatePresence>
         {open ? (
           <motion.div
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            className="mb-3 flex h-[min(31rem,calc(100dvh-13rem))] w-[calc(100vw-1.5rem)] max-w-sm flex-col overflow-hidden rounded-[1.5rem] bg-white shadow-[0_30px_90px_rgba(3,26,54,0.28)] ring-1 ring-navy-100 md:mb-4 md:h-[min(42rem,calc(100vh-7rem))] md:max-w-md md:rounded-[1.75rem]"
+            className="mb-3 flex h-[min(31rem,calc(100dvh-17rem-env(safe-area-inset-bottom)))] w-[calc(100vw-1.5rem)] max-w-sm flex-col overflow-hidden rounded-[1.5rem] bg-white shadow-[0_30px_90px_rgba(3,26,54,0.28)] ring-1 ring-navy-100 md:mb-4 md:h-[min(42rem,calc(100vh-7rem))] md:max-w-md md:rounded-[1.75rem]"
             exit={{ opacity: 0, y: 18, scale: 0.96 }}
             initial={{ opacity: 0, y: 18, scale: 0.96 }}
           >
