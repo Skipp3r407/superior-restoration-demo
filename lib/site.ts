@@ -95,6 +95,7 @@ export const navItems = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Mold Check", href: "/mold-risk-check" },
   { label: "Insurance", href: "/insurance-claims" },
   { label: "Contact", href: "/contact" }
 ];
@@ -376,7 +377,7 @@ export const services: Service[] = [
   }
 ];
 
-const specialtyImages = {
+export const specialtyImages = {
   waterSafety:
     "https://images.unsplash.com/photo-1615003382357-4cb74b16a7ab?auto=format&fit=crop&w=1200&q=85",
   wetCleanup:
@@ -1254,3 +1255,54 @@ export const appointmentSlots = [
 ];
 
 export const contactMethods = ["Call", "Text", "Email"];
+
+export const moldRiskQuestions = [
+  { question: "Do you notice a musty or earthy smell anywhere?", weight: 3 },
+  { question: "Has there been a leak, flood or AC overflow in the last 6 months?", weight: 3 },
+  { question: "Are there stains, spots or fuzzy growth on walls, ceilings or under sinks?", weight: 4 },
+  { question: "Is your indoor humidity often above 60% (sticky air, foggy windows)?", weight: 2 },
+  { question: "Does the smell or dust come from AC vents?", weight: 2 },
+  { question: "Is drywall or baseboard soft, swollen or bubbling?", weight: 3 },
+  { question: "Do allergy symptoms get better when you leave the house?", weight: 2 },
+  { question: "Has the roof, window or attic leaked during a storm?", weight: 2 }
+];
+
+export const moldPreventionTips = [
+  { title: "Keep humidity under 50%", text: "Run the AC on auto, not fan-on, and use a dehumidifier in closed rooms. Florida air does the rest if you let it." },
+  { title: "Clear the AC drain line", text: "A clogged condensate line is one of the most common causes of hidden mold in Central Florida homes." },
+  { title: "Dry spills within 24-48 hours", text: "Mold can start growing on wet drywall and carpet within one to two days." },
+  { title: "Vent bathrooms and kitchens", text: "Run the exhaust fan during showers and for 20 minutes after." },
+  { title: "Check after every storm", text: "Look at ceilings, window sills and the attic after heavy rain or a hurricane." },
+  { title: "Don't paint over it", text: "Paint hides mold for a few weeks. The moisture source has to be fixed first." }
+];
+
+export const moldFaqs = [
+  { question: "How do I know if I have mold if I can't see it?", answer: "A musty smell, allergy symptoms at home, recent water damage or high humidity are common signs. An inspection with moisture readings and air testing confirms it." },
+  { question: "Is mold testing worth it?", answer: "Testing tells you what is in the air compared with outside, and clearance testing proves the job is finished. It is especially useful before buying, renting or selling a home." },
+  { question: "How long does mold remediation take?", answer: "Most residential jobs take 1 to 5 days depending on size, plus drying time. Larger projects are scheduled in phases." },
+  { question: "Can I stay in my home during remediation?", answer: "Often yes, because the work area is sealed with containment and negative air. People with asthma, infants or other sensitivities may be advised to stay elsewhere." },
+  { question: "Will the mold come back?", answer: "Not if the moisture source is fixed. That is why every job starts by finding the leak, humidity or AC problem." },
+  { question: "Does insurance pay for mold removal?", answer: "Sometimes, when the mold comes from a sudden covered water event. We document everything for your adjuster. See the insurance claim guide." }
+];
+
+export const sampleLabResults = [
+  { room: "Outdoor baseline", count: 1200, status: "Reference" },
+  { room: "Living room", count: 980, status: "Normal" },
+  { room: "Primary bathroom", count: 6400, status: "Elevated" },
+  { room: "AC closet", count: 14200, status: "High" }
+];
+
+export const sampleJob = {
+  service: "Mold Remediation",
+  address: "Winter Park, FL 32792",
+  technician: "Your assigned technician",
+  stage: 3,
+  nextVisit: "Clearance air test, Thursday 9:30 AM",
+  documents: [
+    { name: "Inspection photo report", status: "Ready" },
+    { name: "Moisture map", status: "Ready" },
+    { name: "Lab results (air samples)", status: "Ready" },
+    { name: "Insurance estimate", status: "Sent to adjuster" },
+    { name: "Clearance certificate", status: "After final test" }
+  ]
+};

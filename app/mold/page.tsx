@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { MoldCenter } from "@/components/MoldCenter";
+import { MoldResources } from "@/components/MoldResources";
 import { ServiceSectionPage } from "@/components/ServiceSectionPage";
 import { serviceSectionPages } from "@/lib/site";
 
@@ -15,6 +16,7 @@ export default function MoldPage() {
     <>
       <ServiceSectionPage section={section} />
       <MoldCenter />
+      <MoldResources />
     </>
   );
 }

@@ -9,7 +9,32 @@ import { LeftSideCTA } from "@/components/LeftSideCTA";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { company } from "@/lib/site";
+import { company, services } from "@/lib/site";
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  name: company.name,
+  url: "https://superiorrestorationsfl.com",
+  telephone: company.phone,
+  email: company.email,
+  image: `https://superiorrestorationsfl.com${company.logo}`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1025 S Semoran Blvd Suite 1071",
+    addressLocality: "Winter Park",
+    addressRegion: "FL",
+    postalCode: "32792",
+    addressCountry: "US"
+  },
+  areaServed: "Central Florida",
+  openingHours: "Mo-Su 00:00-23:59",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Restoration services",
+    itemListElement: services.map((service) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: service.title } }))
+  }
+};
 import "./globals.css";
 
 const inter = Inter({
@@ -52,6 +77,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <script dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} type="application/ld+json" />
         <LoadingScreen />
         <CustomCursor />
         <ScrollProgress />

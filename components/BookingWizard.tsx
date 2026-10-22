@@ -254,6 +254,9 @@ export function BookingWizard() {
               </li>
             ))}
           </ol>
+          <ButtonLink className="mt-6 w-full" href="/track" variant="secondary">
+            Track request {reference}
+          </ButtonLink>
           <p className="mt-6 rounded-2xl bg-white/8 p-4 text-xs leading-5 text-white/55">
             Demo booking: nothing was sent or saved. In the live version this request goes to the office, your calendar
             and text reminders.
