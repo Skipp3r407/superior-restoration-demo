@@ -227,18 +227,19 @@ export function Header() {
           })}
           </nav>
 
-          <ButtonLink
-            className="hidden min-h-11 shrink-0 px-5 xl:inline-flex"
-            href="/book-service"
-          >
-            Book Now
-          </ButtonLink>
+          {/* Wrapper controls visibility: ButtonLink's own inline-flex would override a "hidden" class.
+              Phones use the Book Now in the sticky bottom bar instead. */}
+          <span className="hidden shrink-0 sm:block">
+            <ButtonLink className="min-h-11 px-5" href="/book-service">
+              Book Now
+            </ButtonLink>
+          </span>
         </div>
 
         <button
           aria-expanded={open}
           aria-label="Toggle navigation"
-          className="ml-auto grid h-12 w-12 place-items-center rounded-full border border-navy-100 bg-white text-navy-950 shadow-sm transition hover:border-rescue-500 hover:bg-rescue-500 hover:text-white xl:hidden"
+          className="ml-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-navy-100 bg-white text-navy-950 shadow-sm transition hover:border-rescue-500 hover:bg-rescue-500 hover:text-white xl:hidden"
           onClick={() => setOpen((current) => !current)}
           type="button"
         >
