@@ -122,21 +122,19 @@ export function Footer() {
       <div className="section-shell mt-12 border-t border-white/10 pt-10 text-center">
         <p className="text-sm text-white/50">Website Designed By</p>
         <a
-          className="mt-4 inline-flex items-center justify-center gap-3 transition hover:opacity-85"
+          className="mt-4 inline-flex flex-col items-center justify-center gap-1.5 transition hover:opacity-85"
           href="https://www.elevatedigitalstudios.net/"
           rel="noreferrer"
           target="_blank"
         >
-          <span className="relative block h-12 w-12 shrink-0 overflow-hidden rounded-full bg-white">
-            <Image
-              alt="Elevate Digital Studios logo"
-              className="object-contain p-1"
-              fill
-              sizes="48px"
-              src="/brand/elevate-digital-studios-logo.png"
-            />
-          </span>
-          <span className="text-lg font-bold text-white/90">
+          <Image
+            alt=""
+            className="h-auto w-[150px] object-contain"
+            height={152}
+            src="/brand/elevate-logo-wide.png"
+            width={480}
+          />
+          <span className="text-sm font-bold text-white/90">
             Elevate Digital Studios
           </span>
         </a>
