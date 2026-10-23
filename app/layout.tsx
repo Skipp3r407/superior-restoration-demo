@@ -6,7 +6,6 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
 import { LeftSideCTA } from "@/components/LeftSideCTA";
-import { LoadingScreen } from "@/components/LoadingScreen";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { company, services } from "@/lib/site";
@@ -78,7 +77,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <script dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} type="application/ld+json" />
-        <LoadingScreen />
         <CustomCursor />
         <ScrollProgress />
         <InteractiveBackground />

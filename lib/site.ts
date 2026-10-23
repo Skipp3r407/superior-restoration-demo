@@ -934,6 +934,22 @@ export const trustBadges = [
   "Professional Equipment"
 ];
 
+/** Real job photos from Superior Restoration's own gallery (superiorrestorationsfl.com/gallery). Titles describe what each photo shows. */
+export const jobPhotos = [
+  { title: "Drying equipment set up", category: "Drying", src: "/jobs/water-13.webp", tall: true },
+  { title: "Cleanup after drywall removal", category: "Water Damage", src: "/jobs/about-us-img-1.webp", tall: true },
+  { title: "Wall cavity opened for drying", category: "Water Damage", src: "/jobs/water-8.webp" },
+  { title: "Flood cut and extraction underway", category: "Water Damage", src: "/jobs/water-10.webp", tall: true },
+  { title: "Storm water on a paver patio", category: "Storm Damage", src: "/jobs/water-3.webp" },
+  { title: "Standing water on a tile floor", category: "Water Damage", src: "/jobs/water-1.webp" },
+  { title: "Wet framing exposed for drying", category: "Water Damage", src: "/jobs/water-12.webp", tall: true },
+  { title: "Shower pan opened up", category: "Leak Repair", src: "/jobs/water-7.webp", tall: true },
+  { title: "Water across a tile floor", category: "Water Damage", src: "/jobs/water-2-1.webp" },
+  { title: "Baseboards and drywall cut back", category: "Water Damage", src: "/jobs/water-9.webp", tall: true },
+  { title: "Damaged flooring along the wall", category: "Water Damage", src: "/jobs/water-11.webp", tall: true },
+  { title: "Wet floor after a leak", category: "Water Damage", src: "/jobs/water-5.webp" }
+];
+
 export const galleryCategories = [
   "All",
   "Water Damage",
