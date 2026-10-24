@@ -42,6 +42,7 @@ export default function Home() {
           className="object-cover opacity-55"
           fill
           priority
+          quality={50}
           sizes="100vw"
           src={images.hero}
         />

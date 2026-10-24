@@ -1,3 +1,4 @@
+import { servicePath } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icons";
@@ -6,7 +7,7 @@ import type { Service } from "@/lib/site";
 
 export function ServiceCard({
   service,
-  href = `/services/${service.slug}`
+  href = servicePath(service.slug)
 }: {
   service: Service;
   href?: string;
@@ -39,7 +40,7 @@ export function ServiceCard({
               className="inline-flex min-h-11 items-center justify-center rounded-full bg-navy-950 px-5 text-sm font-black text-white transition hover:bg-rescue-500 group-hover:bg-rescue-500"
               href={href}
             >
-              Learn More
+              Learn More<span className="sr-only"> about {service.title}</span>
             </Link>
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-navy-100 bg-white px-5 text-sm font-black text-navy-950 transition hover:border-rescue-500 hover:bg-rescue-500 hover:text-white group-hover:border-rescue-500"

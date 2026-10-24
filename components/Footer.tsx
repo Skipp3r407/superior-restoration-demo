@@ -1,3 +1,4 @@
+import { servicePath } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icons";
@@ -63,7 +64,7 @@ export function Footer() {
             {services.map((service) => (
               <Link
                 className="text-white/70 transition hover:text-rescue-500"
-                href={`/services/${service.slug}`}
+                href={servicePath(service.slug)}
                 key={service.slug}
               >
                 {service.shortTitle}

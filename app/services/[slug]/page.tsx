@@ -1,8 +1,8 @@
 import { JsonLd } from "@/components/JsonLd";
-import { serviceSchema, servicePath } from "@/lib/seo";
+import { serviceSchema, servicePath, waterSlugs } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { ButtonLink } from "@/components/Button";
 import { CTASection } from "@/components/CTASection";
 import { FAQ } from "@/components/FAQ";
@@ -382,6 +382,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  // Water services live under /water (their canonical address).
+  if (waterSlugs.includes(slug)) permanentRedirect(`/water/${slug}`);
   const service = allServicePages.find((item) => item.slug === slug);
 
   if (!service) {

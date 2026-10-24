@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
+import { servicePath } from "@/lib/seo";
 import { allServicePages } from "@/lib/site";
 
 type PageProps = {
@@ -34,5 +35,5 @@ export default async function RootServiceAliasPage({ params }: PageProps) {
     notFound();
   }
 
-  redirect(`/services/${service.slug}`);
+  permanentRedirect(servicePath(service.slug));
 }

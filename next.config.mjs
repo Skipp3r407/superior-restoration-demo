@@ -6,6 +6,8 @@ const projectRoot = dirname(fileURLToPath(import.meta.url));
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    formats: ["image/avif", "image/webp"],
+    qualities: [50, 75],
     remotePatterns: [
       {
         protocol: "https",
