@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/JsonLd";
+import { serviceSchema, servicePath } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -44,7 +46,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: service.metaTitle,
-    description: service.metaDescription
+    description: service.metaDescription,
+    alternates: { canonical: servicePath(service.slug) }
   };
 }
 
@@ -58,6 +61,7 @@ export default async function WaterServiceDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd data={serviceSchema(service)} />
       <PageHero
         eyebrow="Water Services"
         image={service.heroImage}

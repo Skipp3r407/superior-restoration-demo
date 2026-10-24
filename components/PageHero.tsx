@@ -20,7 +20,7 @@ export function PageHero({
     <section className="relative overflow-hidden bg-navy-950 text-white">
       {image ? (
         <Image
-          alt=""
+          alt={`${title}: Superior Restoration Services crew at work in Central Florida`}
           className="object-cover opacity-[0.47]"
           fill
           priority

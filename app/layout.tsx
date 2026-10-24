@@ -8,7 +8,7 @@ import { InteractiveBackground } from "@/components/InteractiveBackground";
 import { LeftSideCTA } from "@/components/LeftSideCTA";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { company, services } from "@/lib/site";
+import { company, services, socialLinks } from "@/lib/site";
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -26,8 +26,16 @@ const businessSchema = {
     postalCode: "32792",
     addressCountry: "US"
   },
-  areaServed: "Central Florida",
-  openingHours: "Mo-Su 00:00-23:59",
+  geo: { "@type": "GeoCoordinates", latitude: 28.5821505, longitude: -81.3062866 },
+  hasMap: company.addressMapsHref,
+  areaServed: ["Orlando", "Winter Park", "Oviedo", "Kissimmee", "Sanford", "Central Florida"].map((name) => ({ "@type": "Place", name })),
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    opens: "00:00",
+    closes: "23:59"
+  },
+  sameAs: socialLinks.map((link) => link.href.split("?")[0]),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Restoration services",
@@ -49,6 +57,7 @@ export const metadata: Metadata = {
   description:
     "Superior Restoration Services provides Central Florida water damage restoration, fire cleanup, mold remediation, storm damage repair, emergency cleanup, and commercial restoration.",
   metadataBase: new URL("https://superiorrestorationsfl.com"),
+  alternates: { canonical: "./" },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

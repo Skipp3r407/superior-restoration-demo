@@ -14,7 +14,8 @@ import { QuoteEstimator } from "@/components/QuoteEstimator";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceArea } from "@/components/ServiceArea";
 import { ServiceCard } from "@/components/ServiceCard";
-import { ServiceVideoSection } from "@/components/ServiceVideoSection";
+import { JsonLd } from "@/components/JsonLd";
+import { faqSchema } from "@/lib/seo";
 import { TestimonialSection } from "@/components/TestimonialSection";
 import { TrustBadges } from "@/components/TrustBadges";
 import {
@@ -113,8 +114,6 @@ export default function Home() {
           </Stagger>
         </div>
       </section>
-
-      <ServiceVideoSection />
 
       <section className="bg-navy-50 py-20 sm:py-24">
         <div className="section-shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
@@ -266,6 +265,7 @@ export default function Home() {
             title="Restoration questions customers ask before calling"
           />
           <FAQ items={globalFaqs} />
+          <JsonLd data={faqSchema(globalFaqs)} />
         </div>
       </section>
 

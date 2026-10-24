@@ -128,7 +128,7 @@ export function Footer() {
           target="_blank"
         >
           <Image
-            alt=""
+            alt="Elevate Digital Studios logo"
             className="h-auto w-[150px] object-contain"
             height={152}
             src="/brand/elevate-logo-wide.png"
